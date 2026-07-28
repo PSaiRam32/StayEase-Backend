@@ -1,4 +1,8 @@
-# 🏨 StayEase – Enterprise Accommodation Booking Platform
+<p align="center">
+  <img src="StayEase.png" alt="StayEase Banner" width="100%">
+</p>
+
+# 🏨 StayEase – Hostel & PG Booking Platform
 
 <div align="center">
 
