@@ -2,17 +2,69 @@
 
 <div align="center">
 
+
 ![Java](https://img.shields.io/badge/Java-21-orange?style=for-the-badge)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-brightgreen?style=for-the-badge)
 ![Spring Cloud](https://img.shields.io/badge/Spring_Cloud-Microservices-success?style=for-the-badge)
-![MySQL](https://img.shields.io/badge/MySQL-Database-blue?style=for-the-badge)
-![JWT](https://img.shields.io/badge/JWT-Security-yellow?style=for-the-badge)
-![Razorpay](https://img.shields.io/badge/Razorpay-Payments-blueviolet?style=for-the-badge)
+![Gradle](https://img.shields.io/badge/Gradle-Build_Tool-02303A?style=for-the-badge&logo=gradle)
+![MySQL](https://img.shields.io/badge/MySQL-Database-blue?style=for-the-badge&logo=mysql)
+![JWT](https://img.shields.io/badge/JWT-Security-black?style=for-the-badge&logo=jsonwebtokens)
 ![OpenFeign](https://img.shields.io/badge/OpenFeign-Service_Communication-lightgrey?style=for-the-badge)
+![Razorpay](https://img.shields.io/badge/Razorpay-Payments-02042B?style=for-the-badge&logo=razorpay)
 ![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
 
 </div>
 
+# 📑 Table of Contents
+
+- [📖 Project Overview](#-project-overview)
+- [🎯 Business Problem](#-business-problem)
+- [💡 Business Solution](#-business-solution)
+- [🏛 Enterprise Concepts Demonstrated](#-enterprise-concepts-demonstrated)
+- [🎯 Project Objectives](#-project-objectives)
+- [✨ Major Features](#-major-features)
+- [🛠 Technology Stack](#-technology-stack)
+- [🚀 Future Technology Roadmap](#-future-technology-roadmap)
+- [🌟 Platform Highlights](#-platform-highlights)
+- [🏗 High-Level System Architecture](#-high-level-system-architecture)
+- [🧩 Microservices Overview](#-microservices-overview)
+- [📋 Service Responsibilities](#-service-responsibilities)
+- [🔄 End-to-End Request Flow](#-end-to-end-request-flow)
+- [🌐 Inter-Service Communication](#-inter-service-communication)
+- [🗄 Database per Service Architecture](#-database-per-service-architecture)
+- [🔗 External Integrations](#-external-integrations)
+- [🔄 End-to-End Business Workflows](#-end-to-end-business-workflows)
+  - [👤 User Registration Workflow](#-user-registration-workflow)
+  - [🔐 Login & Authentication Workflow](#-login--authentication-workflow)
+  - [📧 Email Verification Workflow](#-email-verification-workflow)
+  - [🏠 Property Discovery Workflow](#-property-discovery-workflow)
+  - [📅 Booking Workflow](#-booking-workflow)
+  - [💳 Payment Workflow](#-payment-workflow)
+  - [📧 Notification Workflow](#-notification-workflow)
+  - [❌ Booking Cancellation Workflow](#-booking-cancellation-workflow)
+  - [💰 Refund Workflow](#-refund-workflow)
+  - [🏢 Owner Management Workflow](#-owner-management-workflow)
+  - [🌐 Platform Collaboration Overview](#-platform-collaboration-overview)
+- [🏛 Enterprise Architecture Decisions](#-enterprise-architecture-decisions)
+  - [🌐 Why Microservices?](#-why-microservices)
+  - [🚪 Why API Gateway?](#-why-api-gateway)
+  - [🗄 Why Database per Service?](#-why-database-per-service)
+  - [🔐 Why JWT Authentication?](#-why-jwt-authentication)
+  - [📡 Why OpenFeign?](#-why-openfeign)
+  - [💳 Why a Dedicated Payment Service?](#-why-a-dedicated-payment-service)
+  - [📧 Why a Dedicated Notification Service?](#-why-a-dedicated-notification-service)
+  - [🏗 Why Layered Architecture?](#-why-layered-architecture)
+  - [🔄 Why Transaction Management?](#-why-transaction-management)
+  - [🛡 Security Principles](#-security-principles)
+  - [🚀 Production Readiness](#-production-readiness)
+  - [🌟 Architectural Principles](#-architectural-principles)
+- [📂 Repository Structure](#-repository-structure)
+- [🔗 Service Repositories](#-service-repositories)
+- [🚀 Getting Started](#-getting-started)
+- [📮 API Documentation](#-api-documentation)
+- [🤝 Contributing](#-contributing)
+- [📜 License](#-license)
+- [👨‍💻 Author](#-author)
 ---
 
 # 📖 Project Overview
@@ -829,7 +881,7 @@ These workflows highlight several enterprise software engineering practices adop
 - Domain-Driven Design (DDD)
 
 Each business capability remains isolated within its own service, enabling independent development, deployment, scalability, and maintenance.
----
+
 ---
 
 # 📅 Booking Workflow
@@ -1524,3 +1576,335 @@ StayEase follows several enterprise software engineering principles:
 - Cloud-Native Ready Architecture
 
 These principles ensure that the platform remains scalable, maintainable, and adaptable as new business requirements emerge.
+
+---
+
+# 📂 Repository Structure
+
+The StayEase repository is organized to separate source code, architecture documentation, developer guides, reusable assets, and API collections. This structure improves maintainability, onboarding, and scalability as the platform evolves.
+
+```text
+StayEase/
+│
+├── README.md                           # Project overview and documentation
+├── LICENSE                             # MIT License
+├── .gitignore                          # Git ignore rules
+│
+├── architecture/                       # Enterprise architecture documentation
+│   ├── README.md
+│   ├── 01-project-overview.md
+│   ├── 02-system-architecture.md
+│   ├── 03-er-diagram.md
+│   ├── 04-class-diagram.md
+│   ├── 05-service-dependency.md
+│   ├── 06-security-architecture.md
+│   ├── 07-feign-communication.md
+│   ├── 08-booking-service-design.md
+│   ├── 09-payment-service-design.md
+│   ├── 10-notification-service-design.md
+│   ├── 11-deployment-architecture.md
+│   ├── 12-distributed-transactions.md
+│   └── 13-future-roadmap.md
+│
+├── docs/                               # Developer documentation
+│   ├── getting-started.md
+│   ├── authentication-workflow.md
+│   ├── booking-workflow.md
+│   ├── payment-workflow.md
+│   ├── notification-workflow.md
+│   ├── troubleshooting.md
+│   ├── api-overview.md
+│   └── roadmap.md
+│
+├── assets/                             # Architecture diagrams and images
+│   ├── architecture/
+│   ├── workflows/
+│   ├── database/
+│   └── screenshots/
+│
+├── postman/                            # API collections
+    └── StayEase.postman_collection.json
+
+```
+
+## 📁 Folder Overview
+
+| Folder | Description |
+|---------|-------------|
+| **architecture/** | Contains enterprise architecture documents, design decisions, diagrams, and technical references. |
+| **docs/** | Developer documentation including setup guides, workflows, troubleshooting, and API usage. |
+| **assets/** | Stores architecture diagrams, workflow diagrams, ER diagrams, screenshots, and other visual resources. |
+| **postman/** | Contains Postman collections for testing and exploring the platform APIs. |
+| **services/** | Contains the individual microservice repositories that together form the StayEase platform. |
+
+The repository structure is designed to keep business logic, documentation, diagrams, and supporting resources well organized, making the project easier to understand, maintain, and extend.
+
+---
+
+# 🔗 Service Repositories
+
+StayEase follows a distributed microservices architecture where each business domain is developed, versioned, and deployed independently.
+
+Each microservice maintains its own source code repository, allowing independent development, testing, deployment, and future scalability.
+
+| Service | Responsibility | Technology | Status |
+|----------|----------------|------------|--------|
+| 🌐 API Gateway | API routing, request forwarding, centralized entry point | Spring Cloud Gateway | ✅ Completed |
+| 🔐 Auth Service | Authentication, JWT, Refresh Tokens, Email Verification | Spring Boot, Spring Security | ✅ Completed |
+| 👤 User Service | User profile management, wishlist, booking history | Spring Boot, Spring Data JPA | ✅ Completed |
+| 🏢 Owner Service | Owner dashboard, property ownership, revenue analytics | Spring Boot | ✅ Completed |
+| 🏠 Property Service | Property listings, rooms, amenities, search, reviews | Spring Boot | ✅ Completed |
+| 📅 Booking Service | Booking lifecycle, availability calculation, cancellations | Spring Boot | ✅ Completed |
+| 💳 Payment Service | Razorpay integration, payment verification, refunds | Spring Boot | ✅ Completed |
+| 📧 Notification Service | Email notifications, retry mechanism, delivery tracking | Spring Boot | ✅ Completed |
+
+## 📦 Repository Organization
+
+Each service follows the same enterprise project structure to ensure consistency across the platform.
+
+```text
+service-name/
+│
+├── src/
+├── docs/
+├── README.md
+├── build.gradle
+├── gradlew
+├── gradlew.bat
+├── settings.gradle
+├── .gitignore
+└── LICENSE
+```
+
+## 🎯 Why Separate Repositories?
+
+StayEase adopts a multi-repository (multi-repo) strategy to align with enterprise software development practices.
+
+### Benefits
+
+- Independent development for each service
+- Independent release cycles
+- Independent deployments
+- Better ownership of business domains
+- Cleaner Git history
+- Easier team collaboration
+- Service-specific CI/CD pipelines
+- Independent versioning
+- Improved scalability and maintainability
+
+This repository serves as the central documentation hub, while each microservice repository contains the implementation, configuration, and service-specific documentation.
+
+---
+
+# 🚀 Getting Started
+
+This guide explains how to set up and run the StayEase platform in a local development environment.
+
+## 📋 Prerequisites
+
+Ensure the following software is installed before running the project.
+
+| Software | Version |
+|----------|---------|
+| Java | 21 or later |
+| Gradle | 8.x or later |
+| MySQL | 8.0 or later |
+| Git | Latest |
+| IntelliJ IDEA / VS Code | Latest |
+| Postman | Latest (Optional) |
+
+---
+
+## 📥 Clone the Repositories
+
+Clone the required StayEase repositories from GitHub.
+
+```bash
+git clone https://github.com/PSaiRam32/stayease-api-gateway
+git clone https://github.com/PSaiRam32/stayease-auth-service
+git clone https://github.com/PSaiRam32/stayease-user-service
+git clone https://github.com/PSaiRam32/stayease-owner-service
+git clone https://github.com/PSaiRam32/stayease-property-service
+git clone https://github.com/PSaiRam32/stayease-booking-service
+git clone https://github.com/PSaiRam32/stayease-payment-service
+git clone https://github.com/PSaiRam32/stayease-notification-service
+```
+
+---
+
+## 🗄 Database Setup
+
+Create a separate MySQL database for each microservice.
+
+| Service | Database |
+|----------|----------|
+| Auth Service | `stayease_auth_db` |
+| User Service | `stayease_user_db` |
+| Owner Service | `stayease_owner_db` |
+| Property Service | `stayease_property_db` |
+| Booking Service | `stayease_booking_db` |
+| Payment Service | `stayease_payment_db` |
+| Notification Service | `stayease_notification_db` |
+
+---
+
+## ⚙️ Configure Environment
+
+Update the `application.yml` (or profile-specific configuration) in each service with your local settings.
+
+Typical configuration includes:
+
+- MySQL URL
+- Database username
+- Database password
+- SMTP credentials
+- Razorpay API credentials
+- JWT secret
+- Service ports
+
+---
+
+## ▶️ Start the Services
+
+Start the services in the following order:
+
+1. Auth Service
+2. User Service
+3. Owner Service
+4. Property Service
+5. Booking Service
+6. Payment Service
+7. Notification Service
+8. API Gateway
+
+Verify that each service starts successfully before launching the next.
+
+---
+
+## 🌐 Access the APIs
+
+After all services are running, access the platform through the API Gateway.
+
+Example:
+
+```
+http://localhost:8080
+```
+
+Use the API Gateway as the single entry point for all client requests.
+
+---
+
+## 🧪 Verify the Setup
+
+After starting all services:
+
+- Confirm each service is running without startup errors.
+- Verify database connections.
+- Open the Swagger UI for each service.
+- Register a user or owner.
+- Verify email confirmation.
+- Log in and obtain JWT tokens.
+- Search for properties.
+- Create a booking.
+- Complete a payment.
+- Verify notification delivery.
+
+If all of the above work successfully, the StayEase platform is ready for development and testing.
+
+---
+
+# 📮 API Documentation
+
+StayEase follows an API-first approach where every microservice exposes RESTful APIs documented using **Swagger / OpenAPI**.
+
+Each service provides an interactive Swagger UI that allows developers to:
+
+- Explore available endpoints
+- View request and response models
+- Test APIs directly from the browser
+- Understand validation rules
+- Review HTTP status codes
+
+## 📚 Swagger Endpoints
+
+| Service | Default Port | Swagger UI |
+|----------|-------------:|------------|
+| API Gateway | 8000 | Gateway routes client requests (Swagger typically hosted by services) |
+| Auth Service | 8081 | `http://localhost:8081/swagger-ui/index.html` |
+| User Service | 8082 | `http://localhost:8082/swagger-ui/index.html` |
+| Owner Service | 8083 | `http://localhost:8083/swagger-ui/index.html` |
+| Property Service | 8084 | `http://localhost:8084/swagger-ui/index.html` |
+| Booking Service | 8085 | `http://localhost:8085/swagger-ui/index.html` |
+| Payment Service | 8086 | `http://localhost:8086/swagger-ui/index.html` |
+| Notification Service | 8087 | `http://localhost:8087/swagger-ui/index.html` |
+
+## API Design Principles
+
+StayEase APIs follow consistent RESTful design practices:
+
+- Resource-oriented endpoint naming
+- Standard HTTP methods
+- DTO-based request and response models
+- Consistent HTTP status codes
+- Bean Validation
+- Global Exception Handling
+- JWT-secured endpoints
+- Role-Based Access Control (RBAC)
+
+This consistency simplifies client integration and improves maintainability across all microservices.
+
+---
+
+# 🤝 Contributing
+
+Contributions, suggestions, and constructive feedback are always welcome.
+
+If you would like to contribute:
+
+1. Fork the repository.
+2. Create a feature branch.
+3. Follow the existing coding standards and project structure.
+4. Commit your changes with meaningful commit messages.
+5. Push your branch to your fork.
+6. Open a Pull Request describing your changes.
+
+## Development Guidelines
+
+- Follow SOLID principles.
+- Maintain layered architecture.
+- Keep services loosely coupled.
+- Write clean and readable code.
+- Validate inputs using Jakarta Bean Validation.
+- Handle exceptions through Global Exception Handlers.
+- Keep business logic inside the service layer.
+- Update documentation whenever new features are introduced.
+
+Thank you for helping improve StayEase.
+
+---
+
+# 📜 License
+
+This project is licensed under the **MIT License**.
+
+You are free to use, modify, and distribute this software in accordance with the terms of the MIT License.
+
+See the `LICENSE` file for the complete license text.
+
+---
+
+# 👨‍💻 Author
+
+**Sai Ram Paidipati**
+
+Java Backend Developer 
+
+### Connect with me
+
+- GitHub: https://github.com/PSaiRam32
+- LinkedIn: https://www.linkedin.com/in/sairam-paidipati/
+
+If you found this project helpful, consider giving the repository a ⭐.
+
+---
