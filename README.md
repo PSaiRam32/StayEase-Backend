@@ -30,13 +30,17 @@
 - [🛠 Technology Stack](#-technology-stack)
 - [🚀 Future Technology Roadmap](#-future-technology-roadmap)
 - [🌟 Platform Highlights](#-platform-highlights)
+
 - [🏗 High-Level System Architecture](#-high-level-system-architecture)
 - [🧩 Microservices Overview](#-microservices-overview)
 - [📋 Service Responsibilities](#-service-responsibilities)
 - [🔄 End-to-End Request Flow](#-end-to-end-request-flow)
 - [🌐 Inter-Service Communication](#-inter-service-communication)
+- [🌐 Service Discovery](#-service-discovery)
+- [❤️ Monitoring & Observability](#-monitoring--observability)
 - [🗄 Database per Service Architecture](#-database-per-service-architecture)
 - [🔗 External Integrations](#-external-integrations)
+
 - [🔄 End-to-End Business Workflows](#-end-to-end-business-workflows)
   - [👤 User Registration Workflow](#-user-registration-workflow)
   - [🔐 Login & Authentication Workflow](#-login--authentication-workflow)
@@ -49,6 +53,7 @@
   - [💰 Refund Workflow](#-refund-workflow)
   - [🏢 Owner Management Workflow](#-owner-management-workflow)
   - [🌐 Platform Collaboration Overview](#-platform-collaboration-overview)
+
 - [🏛 Enterprise Architecture Decisions](#-enterprise-architecture-decisions)
   - [🌐 Why Microservices?](#-why-microservices)
   - [🚪 Why API Gateway?](#-why-api-gateway)
@@ -62,6 +67,7 @@
   - [🛡 Security Principles](#-security-principles)
   - [🚀 Production Readiness](#-production-readiness)
   - [🌟 Architectural Principles](#-architectural-principles)
+
 - [📂 Repository Structure](#-repository-structure)
 - [🔗 Service Repositories](#-service-repositories)
 - [🚀 Getting Started](#-getting-started)
@@ -73,41 +79,35 @@
 
 # 📖 Project Overview
 
-**StayEase** is an enterprise-grade accommodation booking platform built using **Java 21**, **Spring Boot**, **Spring Cloud Microservices**, **MySQL**, **Spring Security**, and **Gradle**.
+**StayEase** is an enterprise-grade Hostel & PG Booking Platform built using **Java 21**, **Spring Boot 3**, **Spring Cloud**, **Spring Security**, **MySQL**, and **Gradle** following a distributed **Microservices Architecture**.
 
-The platform enables users to discover, book, and manage accommodations while allowing property owners to manage listings, monitor bookings, and track business performance through dedicated dashboards.
+The platform enables users to discover accommodations, make secure bookings, complete online payments, receive real-time notifications, and manage their bookings, while allowing property owners to manage listings, monitor occupancy, and track business performance.
 
-Unlike traditional monolithic booking systems, StayEase follows a **Microservices Architecture**, where every business capability is implemented as an independent service with its own database, business logic, and deployment lifecycle.
+Each business capability is implemented as an independent microservice with its own database, business logic, and deployment lifecycle, following the **Database per Service** pattern.
 
-The platform demonstrates modern enterprise backend engineering practices including:
+The current platform demonstrates enterprise backend engineering concepts including:
 
 - Microservices Architecture
 - API Gateway Pattern
-- Database per Service Pattern
-- JWT Authentication & Authorization
-- Email Verification
-- Refresh Token Authentication
-- Secure Password Management
+- Netflix Eureka Service Discovery
 - OpenFeign Inter-Service Communication
-- Circuit Breaker & Retry Mechanisms
+- Resilience4j Circuit Breaker & Retry
+- Spring Boot Actuator
+- JWT Authentication & Authorization
+- Refresh Token Authentication
+- Email Verification
+- Role-Based Access Control (RBAC)
+- Database per Service
 - Layered Architecture
 - Domain-Driven Design (DDD)
-- Spring Security
+- Razorpay Payment Gateway Integration
+- Asynchronous Notification Processing
 - Bean Validation
 - Global Exception Handling
-- Asynchronous Notification Processing
-- Payment Gateway Integration (Razorpay)
+- Structured Logging
+- Environment-Based Configuration
 
-The architecture has been designed to support future enterprise enhancements including:
-
-- Apache Kafka Event-Driven Communication
-- Docker & Docker Compose
-- Kubernetes
-- Prometheus & Grafana
-- Centralized Logging
-- Distributed Tracing
-- CI/CD Pipelines
-- Cloud Deployment (AWS / Azure / GCP)
+The architecture has been intentionally designed to support future cloud-native enhancements including Apache Kafka, Docker, Kubernetes, Prometheus, Grafana, Distributed Tracing, and CI/CD pipelines.
 
 ---
 
@@ -163,33 +163,31 @@ By separating responsibilities across dedicated services, StayEase achieves a sc
 
 # 🏛 Enterprise Concepts Demonstrated
 
-StayEase has been designed by following modern enterprise software engineering principles commonly used in large-scale distributed systems.
-
-The project demonstrates practical implementation of the following concepts:
+StayEase demonstrates practical implementation of modern enterprise backend engineering practices commonly adopted in large-scale distributed systems.
 
 - Microservices Architecture
 - API Gateway Pattern
+- Netflix Eureka Service Discovery
 - Database per Service Pattern
-- Domain-Driven Design (DDD)
-- Layered Architecture
-- Spring Security
-- JWT Authentication & Authorization
-- Refresh Token Authentication
-- Email Verification
-- Password Encryption (BCrypt)
-- Role-Based Access Control (RBAC)
-- OpenFeign Inter-Service Communication
-- Circuit Breaker Pattern
+- OpenFeign Declarative REST Clients
+- Resilience4j Circuit Breaker
 - Retry Mechanism
+- Spring Boot Actuator
+- JWT Authentication
+- Refresh Token Authentication
+- Role-Based Access Control (RBAC)
+- Email Verification
+- BCrypt Password Encryption
+- Layered Architecture
+- Domain-Driven Design (DDD)
 - Bean Validation
 - Global Exception Handling
 - Transaction Management
-- Secure Payment Integration (Razorpay)
+- Razorpay Payment Integration
 - Asynchronous Notification Processing
+- Environment Profiles
+- Structured Logging
 - RESTful API Design
-- Environment-Based Configuration
-- Enterprise Logging
-- Production-Oriented Project Structure
 
 The architecture has also been intentionally designed to support future migration toward an event-driven and cloud-native ecosystem.
 
@@ -307,19 +305,21 @@ StayEase consists of multiple business domains working together to provide a com
 | Category | Technology |
 |------------|------------|
 | Language | Java 21 |
-| Framework | Spring Boot |
+| Framework | Spring Boot 3.2.x |
 | Microservices | Spring Cloud |
 | API Gateway | Spring Cloud Gateway |
+| Service Discovery | Netflix Eureka |
+| Service Communication | Spring Cloud OpenFeign |
+| Fault Tolerance | Resilience4j |
+| Monitoring | Spring Boot Actuator |
 | Security | Spring Security, JWT |
 | Database | MySQL |
-| ORM | Spring Data JPA, Hibernate |
-| Build Tool | Gradle |
-| Service Communication | OpenFeign |
-| Fault Tolerance | Resilience4j |
+| ORM | Spring Data JPA |
 | Payment Gateway | Razorpay |
 | Email | JavaMailSender |
 | Validation | Jakarta Bean Validation |
 | Documentation | Swagger / OpenAPI |
+| Build Tool | Gradle |
 | Logging | SLF4J |
 | Version Control | Git & GitHub |
 
@@ -336,7 +336,6 @@ Future enhancements include:
 | Event Streaming | Apache Kafka |
 | Containerization | Docker & Docker Compose |
 | Container Orchestration | Kubernetes |
-| Monitoring | Spring Boot Actuator |
 | Metrics | Prometheus |
 | Dashboards | Grafana |
 | Distributed Tracing | OpenTelemetry & Zipkin |
@@ -373,7 +372,19 @@ Future enhancements include:
 ✔ Enterprise Documentation
 
 ✔ Cloud-Native Ready Architecture
----
+
+✔ Netflix Eureka Service Discovery
+
+✔ Spring Boot Actuator
+
+✔ OpenFeign Communication
+
+✔ Resilience4j Fault Tolerance
+
+✔ Swagger API Documentation
+
+✔ Environment Profiles
+
 ---
 
 # 🏗 High-Level System Architecture
@@ -389,38 +400,44 @@ Future versions of the platform will extend this architecture with **Apache Kafk
 ```mermaid
 flowchart TB
 
-Client["Web / Mobile Client"]
+Client["🌐 Web / Mobile Client"]
 
-Gateway["API Gateway"]
+Gateway["🚪 API Gateway"]
 
-Auth["Auth Service"]
-User["User Service"]
-Owner["Owner Service"]
-Property["Property Service"]
-Booking["Booking Service"]
-Payment["Payment Service"]
-Notification["Notification Service"]
+Eureka["📡 Netflix Eureka<br/>Service Discovery"]
 
-AuthDB[(Auth DB)]
-UserDB[(User DB)]
-OwnerDB[(Owner DB)]
-PropertyDB[(Property DB)]
-BookingDB[(Booking DB)]
-PaymentDB[(Payment DB)]
-NotificationDB[(Notification DB)]
+Auth["🔐 Auth Service"]
+User["👤 User Service"]
+Owner["🏢 Owner Service"]
+Property["🏠 Property Service"]
+Booking["📅 Booking Service"]
+Payment["💳 Payment Service"]
+Notification["📧 Notification Service"]
 
-Razorpay["Razorpay"]
-SMTP["SMTP Mail Server"]
+AuthDB[("🗄 Auth DB")]
+UserDB[("🗄 User DB")]
+OwnerDB[("🗄 Owner DB")]
+PropertyDB[("🗄 Property DB")]
+BookingDB[("🗄 Booking DB")]
+PaymentDB[("🗄 Payment DB")]
+NotificationDB[("🗄 Notification DB")]
+
+Actuator["📊 Spring Boot Actuator"]
+
+Razorpay["💳 Razorpay"]
+SMTP["📧 SMTP Server"]
 
 Client --> Gateway
 
-Gateway --> Auth
-Gateway --> User
-Gateway --> Owner
-Gateway --> Property
-Gateway --> Booking
-Gateway --> Payment
-Gateway --> Notification
+Gateway --> Eureka
+
+Eureka --> Auth
+Eureka --> User
+Eureka --> Owner
+Eureka --> Property
+Eureka --> Booking
+Eureka --> Payment
+Eureka --> Notification
 
 Auth --> AuthDB
 User --> UserDB
@@ -429,6 +446,14 @@ Property --> PropertyDB
 Booking --> BookingDB
 Payment --> PaymentDB
 Notification --> NotificationDB
+
+Auth -. Health .-> Actuator
+User -. Health .-> Actuator
+Owner -. Health .-> Actuator
+Property -. Health .-> Actuator
+Booking -. Health .-> Actuator
+Payment -. Health .-> Actuator
+Notification -. Health .-> Actuator
 
 Payment --> Razorpay
 Notification --> SMTP
@@ -442,7 +467,7 @@ StayEase is composed of eight independent microservices, each responsible for a 
 
 | Service | Primary Responsibility |
 |----------|------------------------|
-| API Gateway | Entry point, routing, request forwarding |
+| API Gateway | Routing, Request Filtering, Centralized Entry Point |
 | Auth Service | Authentication, authorization, JWT, refresh tokens, email verification |
 | User Service | User profile management, wishlist, booking history |
 | Owner Service | Owner dashboard, property ownership, revenue insights |
@@ -450,6 +475,7 @@ StayEase is composed of eight independent microservices, each responsible for a 
 | Booking Service | Booking lifecycle, availability calculation, cancellations |
 | Payment Service | Razorpay integration, payment verification, refunds |
 | Notification Service | Email notifications, retries, notification history |
+| Eureka Server | Service Registration & Discovery |
 
 Each service can evolve, scale, and be deployed independently without affecting the rest of the platform.
 
@@ -467,7 +493,10 @@ Responsibilities:
 - Centralized Access
 - Future Rate Limiting
 - Future API Versioning
-
+- Service Routing
+- Load Balancing
+- Service Discovery Integration
+- JWT Forwarding
 ---
 
 ## 🔐 Auth Service
@@ -642,11 +671,43 @@ Booking --> Notification
 Payment --> Booking
 Payment --> Notification
 ```
+All synchronous communication between business services is implemented using Spring Cloud OpenFeign. Service instances are dynamically resolved through Netflix Eureka Service Discovery, eliminating hardcoded service URLs and enabling independent scaling of each microservice.
+
+Critical downstream integrations such as Payment Service use Resilience4j Circuit Breaker and Retry mechanisms to improve fault tolerance and graceful degradation.
 
 Future versions will gradually introduce **Apache Kafka** for asynchronous event-driven communication where appropriate.
 
 ---
+# 🌐 Service Discovery
 
+StayEase uses **Netflix Eureka** for dynamic service registration and discovery.
+
+Each microservice automatically registers itself with the Eureka Server during startup and discovers downstream services by logical service name rather than hardcoded URLs.
+
+Benefits include:
+
+- Dynamic service registration
+- Automatic service discovery
+- Independent scaling
+- Simplified configuration
+- High availability
+---
+# ❤️ Monitoring & Observability
+
+StayEase integrates **Spring Boot Actuator** across business services to expose operational endpoints used for production monitoring.
+
+Monitoring capabilities include:
+
+- Health Checks
+- JVM Metrics
+- Memory Usage
+- HTTP Metrics
+- Thread Information
+- Application Information
+
+These endpoints prepare the platform for Prometheus and Grafana integration.
+
+---
 # 🗄 Database per Service Architecture
 
 Each microservice owns its own dedicated database.
@@ -1547,6 +1608,15 @@ Current implementation includes:
 - Bean Validation
 - Service Isolation
 - Database per Service
+- Netflix Eureka
+- Spring Boot Actuator
+- OpenFeign
+- Resilience4j
+- JWT Authentication
+- Refresh Tokens
+- Environment Profiles
+- Database per Service
+
 
 Planned enhancements include:
 
@@ -1772,14 +1842,15 @@ Typical configuration includes:
 
 Start the services in the following order:
 
-1. Auth Service
-2. User Service
-3. Owner Service
-4. Property Service
-5. Booking Service
-6. Payment Service
-7. Notification Service
-8. API Gateway
+1. Eureka Server
+2. API Gateway
+3. Auth Service
+4. User Service
+5. Owner Service
+6. Property Service
+7. Booking Service
+8. Payment Service
+9. Notification Service
 
 Verify that each service starts successfully before launching the next.
 
@@ -1829,6 +1900,11 @@ Each service provides an interactive Swagger UI that allows developers to:
 - Test APIs directly from the browser
 - Understand validation rules
 - Review HTTP status codes
+
+Every service exposes:
+- Swagger
+- Spring Boot Actuator
+- Health Endpoint
 
 ## 📚 Swagger Endpoints
 
